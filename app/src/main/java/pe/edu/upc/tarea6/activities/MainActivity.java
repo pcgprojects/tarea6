@@ -1,4 +1,4 @@
-package pe.edu.upc.tarea6;
+package pe.edu.upc.tarea6.activities;
 
 import android.content.Context;
 import android.support.design.widget.TextInputLayout;
@@ -23,7 +23,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import pe.edu.upc.tarea6.R;
 import pe.edu.upc.tarea6.models.Employee;
+import pe.edu.upc.tarea6.network.SentinelApi;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -88,8 +90,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public  void saveNewEmployee(Employee employee, final Context context){
-            String urlAPI = "http://178.128.155.0/apiv1/public";
-            AndroidNetworking.post(urlAPI+"/user")
+
+            AndroidNetworking.post(SentinelApi.getUserUrl())
                     .addBodyParameter(employee)
                     .setTag("test")
                     .setPriority(Priority.MEDIUM)
